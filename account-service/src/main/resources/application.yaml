@@ -2,7 +2,7 @@ spring:
   application:
     name: account-service
   datasource:
-    url: jdbc://mysql://localhost:3306/account_db?createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:3306/account_db?createDatabaseIfNotExist=true
     username: root
     password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -18,8 +18,8 @@ spring:
     consumer:
       group-id: account-service-group
       auto-offset: earliest
-      key-deserializer: org.apache.kafka.common.serializaion.StringDeseralizer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       properties:
         spring:
           json:
@@ -32,8 +32,8 @@ spring:
               default:
                 type: java.util.HashMap
     producer:
-      key-serializer: org.apache.kafka.common.serializaion.StringSeralizer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
 
 server:
   port: 8081

@@ -24,7 +24,8 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
-@Slf4j@RequiredArgsConstructor
+@Slf4j
+@RequiredArgsConstructor
 public class TransactionService {
 
     private final TransactionRepository transactionRepository;
